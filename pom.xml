@@ -6,6 +6,15 @@
     <artifactId>bpptkpkplk</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <dependencies>
+            
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>1.5.4</version>
+        </dependency>
+
+    </dependencies>
 
     <name>bpptkpkplk</name>
 
@@ -14,6 +23,7 @@
         <mainClass>com.unix.bpptkpkplk.MainApp</mainClass>
     </properties>
 
+    
     <organization>
         <!-- Used as the 'Vendor' for JNLP generation -->
         <name>Your Organisation</name>
@@ -103,6 +113,8 @@
                 </configuration>
             </plugin>
         </plugins>
+        
     </build>
+
 
 </project>
