@@ -60,7 +60,7 @@ public class FXMLMainMenuController implements Initializable {
                 int i = lvMaster.getSelectionModel().getSelectedIndex();
                 if (i == 0) {
                     try {
-                        Node node = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/FXMLMasterSekolah.fxml"));
+                        Node node = (AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/FXMLMasterSekolah.fxml"));
                         Tab tb = new Tab("Data Sekolah", node);
                         tPane.getTabs().add(tb);
                     } catch (IOException ex) {
