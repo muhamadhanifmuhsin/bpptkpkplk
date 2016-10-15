@@ -6,7 +6,7 @@
     <class name="entities.Sekolah" table="sekolah" catalog="bpptkpkplk_db" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="identity" />
+            <generator class="increment" />
         </id>
         <property name="npsn" type="string">
             <column name="npsn" length="10" />
