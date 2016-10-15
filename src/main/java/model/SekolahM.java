@@ -66,7 +66,7 @@ public class SekolahM implements SekolahIF {
         // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         s = HibernateUtil.getSessionFactory().openSession();
         Query q = s.createQuery("FROM Sekolah WHERE nama_sekolah LIKE :nama_sekolah");
-        q.setString("nama_sekolah", "%"+key+"%");
+        q.setString("nama_sekolah", "%" + key + "%");
         List<Sekolah> ls = q.list();
         return ls;
     }

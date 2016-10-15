@@ -33,45 +33,42 @@ public class FXMLMainMenuController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    
     @FXML
     private ListView<String> lvMaster;
     @FXML
     private TabPane tPane;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         loadListView();
         selectMenu();
-    } 
-    
-    private void loadListView(){
+    }
+
+    private void loadListView() {
         ObservableList<String> ols = FXCollections.observableArrayList();
         ols.add("Data Sekolah");
         ols.add("Data Guru");
         lvMaster.setItems(ols);
     }
-    
-    private void selectMenu(){
+
+    private void selectMenu() {
         lvMaster.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            int i = lvMaster.getSelectionModel().getSelectedIndex();
-            if(i==0){
-                try {
-                    Node node = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/FXMLMasterSekolah.fxml"));
-                    Tab tb = new Tab("Data Sekolah",node);
-                    tPane.getTabs().add(tb);
-                } catch (IOException ex) {
-                    Logger.getLogger(FXMLMainMenuController.class.getName()).log(Level.SEVERE, null, ex);
+                int i = lvMaster.getSelectionModel().getSelectedIndex();
+                if (i == 0) {
+                    try {
+                        Node node = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/FXMLMasterSekolah.fxml"));
+                        Tab tb = new Tab("Data Sekolah", node);
+                        tPane.getTabs().add(tb);
+                    } catch (IOException ex) {
+                        Logger.getLogger(FXMLMainMenuController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             }
-            }
-            });
+        });
     }
-    
-    
-    
+
 }
