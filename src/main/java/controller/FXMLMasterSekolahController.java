@@ -92,6 +92,8 @@ public class FXMLMasterSekolahController implements Initializable {
                 b.setNamaSekolah(tNama.getText());
                 b.setGugus(tGugus.getText());
                 b.setKabKota(tKab_Kota.getText());
+                b.setKabKota(tKab_Kota.getText());
+                b.setAlamat(txAlamat.getText());
                 m.save(b);
                 clear();
                 read();
