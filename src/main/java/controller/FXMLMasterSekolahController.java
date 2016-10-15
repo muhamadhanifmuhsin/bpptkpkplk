@@ -16,6 +16,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -42,9 +43,12 @@ public class FXMLMasterSekolahController implements Initializable {
     TableView<Sekolah> tvMasterSekolah;
     @FXML
     TableColumn<Sekolah, String> id, npsn, nama, gugus, kabKota, alamat;
+    @FXML
+    private ComboBox<String> cmbKabKota;
 
     SekolahM m = new SekolahM();
     ObservableList ols = FXCollections.observableArrayList();
+    ObservableList<String> list = FXCollections.observableArrayList("KAB. BOGOR", "KOTA BOGOR", "KOTA DEPOK");
     String key = null;
 
     /**
@@ -60,6 +64,7 @@ public class FXMLMasterSekolahController implements Initializable {
         delete();
         clearField();
         find();
+        cmbKabKota.setItems(list);
 
     }
 
@@ -91,8 +96,7 @@ public class FXMLMasterSekolahController implements Initializable {
                 b.setNpsn(tNpsn.getText());
                 b.setNamaSekolah(tNama.getText());
                 b.setGugus(tGugus.getText());
-                b.setKabKota(tKab_Kota.getText());
-                b.setKabKota(tKab_Kota.getText());
+                b.setKabKota(cmbKabKota.getValue());
                 b.setAlamat(txAlamat.getText());
                 m.save(b);
                 clear();
@@ -156,7 +160,7 @@ public class FXMLMasterSekolahController implements Initializable {
                 tNama.setText(nama.getCellData(i));
                 tNpsn.setText(npsn.getCellData(i));
                 tGugus.setText(gugus.getCellData(i));
-                tKab_Kota.setText(kabKota.getCellData(i));
+                cmbKabKota.setValue(kabKota.getCellData(i));
                 txAlamat.setText(alamat.getCellData(i));
 
             }
@@ -193,5 +197,6 @@ public class FXMLMasterSekolahController implements Initializable {
         tGugus.clear();
         tKab_Kota.clear();
         txAlamat.clear();
+        cmbKabKota.setValue("");
     }
 }
